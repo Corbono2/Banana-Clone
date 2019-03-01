@@ -11,6 +11,8 @@ public class BB_EnemyController : MonoBehaviour
     void Start() {
       myAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
       target = GameObject.FindGameObjectWithTag("Player").transform;
+      // Transform armiture = GameObject.FindGameObjectWithTag("armiture").transform;
+      // armiture.GetComponent<Animation>().Play("Spider_Armiture|walk_ani_vor");
     }
 
     // Update is called once per frame
