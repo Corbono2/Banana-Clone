@@ -26,7 +26,7 @@ public class WaveManager : MonoBehaviour
         else   // Cooldown over, start wave
         {
             cd = Cooldown;
-            Vector3 pos = new Vector3(3, 1, Random.Range(-3, 4));   // Set up to spawn enemy in random lane
+            Vector3 pos = new Vector3(3, 0.92F, Random.Range(-3, 4));   // Set up to spawn enemy in random lane
             int index = Random.Range(0, Enemies.Length);
             Instantiate(Enemies[index], pos, Quaternion.Euler(0,90,0));   // Get the enemy object
         }
