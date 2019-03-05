@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileTaken : MonoBehaviour
+public class Tile_Taken : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
