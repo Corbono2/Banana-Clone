@@ -7,6 +7,8 @@ TagManager:
   - armiture
   - Tile
   - EndGoal
+  - projectile
+  - Enemy
   layers:
   - Default
   - TransparentFX
