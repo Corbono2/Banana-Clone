@@ -11,7 +11,7 @@ public class BB_EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
       myAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-      target = GameObject.FindGameObjectWithTag("Player").transform;
+      target = GameObject.FindGameObjectWithTag("EndGoal").transform;
       myAnimator = GetComponent<Animator>();
       myAnimator.Play("qiun@move_forward");
     }
@@ -29,4 +29,8 @@ public class BB_EnemyController : MonoBehaviour
           }
       }
     }
+
+    // void OnAnimatorMove() {
+    //   myAgent.speed = (myAnimator.deltaPosition / Time.deltaTime).magnitude;
+    // }
 }
