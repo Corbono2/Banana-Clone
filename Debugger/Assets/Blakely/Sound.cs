@@ -4,16 +4,27 @@ using UnityEngine;
 
 public class Sound : MonoBehaviour
 {
-    public int SoundID;
+
+    public static Sound gameMusic;
+    public static Sound instance = null;
+
+    public AudioSource backgroundSource;
+
+    //public int SoundID;
+    public AudioClip backgroundMusic;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
+        //Load background music from Assets/Blakely/Resources/Audio/background.mp3
+        backgroundMusic = (AudioClip)Resources.Load<AudioClip>("Audio/background");
+
+        backgroundSource.clip = backgroundMusic;
+        backgroundSource.Play();
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         
     }
