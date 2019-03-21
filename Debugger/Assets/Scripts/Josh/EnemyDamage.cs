@@ -33,6 +33,7 @@ public class EnemyDamage : MonoBehaviour
                     Health hpScript = hit.transform.gameObject.GetComponent<Health>();
                     hpScript.health -= Damage;
                     cd = Cooldown;
+                    Destroy(gameObject);
                 }
             }
 
@@ -40,7 +41,7 @@ public class EnemyDamage : MonoBehaviour
             {
                 Health hpScript = hit.transform.gameObject.GetComponent<Health>();
                 hpScript.health -= Damage;
-                cd = Cooldown;
+                Destroy(gameObject);
             }
 
             moveScript.isBlocked = true;
