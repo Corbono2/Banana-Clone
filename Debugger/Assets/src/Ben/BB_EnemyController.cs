@@ -9,7 +9,7 @@ public class BB_EnemyController : MonoBehaviour
     private Animator myAnimator;
 
     // Start is called before the first frame update
-    void Start() {
+    void OnEnable() {
       myAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
       target = GameObject.FindGameObjectWithTag("Player").transform;
       myAnimator = GetComponent<Animator>();
