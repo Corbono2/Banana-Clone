@@ -7,7 +7,9 @@ public class BB_WaveMachine : MonoBehaviour
     public GameObject enemy;
     public Transform[] spawnPoints;
     public float spawnTime = 3f;
+    public int numEnemies = 1;
     public GameObject target;
+    // GameObject EnemyPooler;
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +33,15 @@ public class BB_WaveMachine : MonoBehaviour
       }
 
       int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-      Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+      // Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+      GameObject newEnemy = EnemyPooler.SharedInstance.GetPooledObject();
+      if (newEnemy != null) {
+        newEnemy.transform.position = spawnPoints[spawnPointIndex].position;
+        newEnemy.transform.rotation = spawnPoints[spawnPointIndex].rotation;
+        newEnemy.SetActive(true);
+      }
+
+      numEnemies++;
 
     }
 }
