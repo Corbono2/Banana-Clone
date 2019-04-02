@@ -4,20 +4,39 @@ using UnityEngine;
 
 public class Sound : MonoBehaviour
 {
+    public static Sound Instance{get; private set;}
+    public int SoundID;
 
-    public static Sound gameMusic;
-    public static Sound instance = null;
-
+    //Audio Sources
     public AudioSource backgroundSource;
+    public AudioSource soundeffectSource;
 
-    //public int SoundID;
+    //Sounds
     public AudioClip backgroundMusic;
+    public AudioClip powerUp;
+    public AudioClip gameOver;
+    
+    //Implement Singleton Method insuring only one instance
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     public void Start()
     {
-        //Load background music from Assets/Blakely/Resources/Audio/background.mp3
+        //Load sounds from Assets/Blakely/Resources/Audio/
         backgroundMusic = (AudioClip)Resources.Load<AudioClip>("Audio/background");
+        powerUp = (AudioClip)Resources.Load<AudioClip>("Audio/powerup");
+        gameOver = (AudioClip)Resources.Load<AudioClip>("Audio/gameover");
 
         backgroundSource.clip = backgroundMusic;
         backgroundSource.Play();
@@ -28,4 +47,9 @@ public class Sound : MonoBehaviour
     {
         
     }
+}
+
+public class SoundEffect : Sound 
+{
+
 }
