@@ -33,15 +33,13 @@ public class BB_WaveMachine : MonoBehaviour
       }
 
       int spawnPointIndex = Random.Range(0, spawnPoints.Length);
-      // Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
       GameObject newEnemy = EnemyPooler.SharedInstance.GetPooledObject();
       if (newEnemy != null) {
         newEnemy.transform.position = spawnPoints[spawnPointIndex].position;
         newEnemy.transform.rotation = spawnPoints[spawnPointIndex].rotation;
         newEnemy.SetActive(true);
+        numEnemies++;
       }
-
-      numEnemies++;
 
     }
 }
