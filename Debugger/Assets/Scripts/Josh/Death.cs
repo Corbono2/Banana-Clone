@@ -21,7 +21,7 @@ public class Death : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hpScript.health <= 0)
+       /* if(hpScript <= 0)
         {
             if (isEndGoal)   // Handles death of end goal
             {
@@ -45,8 +45,8 @@ public class Death : MonoBehaviour
                 // Enemy destroyed
                 Destroy(gameObject);
                 // Give resource to player
-                //moneyScript += 10F; // Reminder: come back and update this value later
+                moneyScript += 10F; // Reminder: come back and update this value later
             }
-        }
+        }*/
     }
 }
