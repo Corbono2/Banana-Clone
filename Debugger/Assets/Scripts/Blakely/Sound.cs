@@ -15,23 +15,9 @@ public class Sound : MonoBehaviour
     public AudioClip backgroundMusic;
     public AudioClip powerUp;
     public AudioClip gameOver;
-    
-    //Implement Singleton Method insuring only one instance
-    private void Awake()
-    {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
 
     // Start is called before the first frame update
-    public void Start()
+    void Start()
     {
         //Load sounds from Assets/Blakely/Resources/Audio/
         backgroundMusic = (AudioClip)Resources.Load<AudioClip>("Audio/background");
@@ -43,13 +29,30 @@ public class Sound : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Update()
+    void Update()
     {
         
     }
 }
 
-public class SoundEffect : Sound 
-{
+// public class SoundEffect : Sound 
+// {
 
-}
+// }
+
+// public class BackgroundMusic : Sound
+// {
+//     //Implement Singleton Method insuring only one instance
+//     // private void Awake()
+//     // {
+//     //     if(Instance == null)
+//     //     {
+//     //         Instance = this;
+//     //         DontDestroyOnLoad(gameObject);
+//     //     }
+//     //     else
+//     //     {
+//     //         Destroy(gameObject);
+//     //     }
+//     // }
+// }

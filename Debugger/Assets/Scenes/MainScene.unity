@@ -4750,13 +4750,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1246754861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 500aa0a6edced469fa2c809899f081da, type: 3}
+  m_Script: {fileID: 11500000, guid: 0caf974d7d6fa4b40a961ad361cace3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SoundID: 0
   backgroundSource: {fileID: 1246754864}
   soundeffectSource: {fileID: 1246754864}
-  backgroundMusic: {fileID: 8300000, guid: cc3db306348894d5d8a57d0e4caad879, type: 3}
+  backgroundMusic: {fileID: 0}
   powerUp: {fileID: 0}
   gameOver: {fileID: 0}
 --- !u!4 &1246754863
