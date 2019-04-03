@@ -4,16 +4,22 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.TestTools;
+using System.IO;
 
 namespace Tests
 {
     public class PlayModeTest
     {
+        protected StreamWriter writer;
+        string dateandtime = System.DateTime.Now.ToString("yyyy MMM dd  HH.mm.ss");
+        private string testOutputFile;
+
+
         // ENEMY MOVEMENT TEST
         // Passes if enemy moves
         // Fails if it does not
         [UnityTest]
-        public IEnumerator EnemyMovementTest()
+        public IEnumerator a_EnemyMovementTest()
         {
             MonoBehaviour.Instantiate(Resources.Load<GameObject>("Enemy1"));
 
@@ -48,6 +54,7 @@ namespace Tests
                 MonoBehaviour.Instantiate(Resources.Load<GameObject>("Enemy1"));
                 yield return new WaitForSeconds(1);
 
+
                 if (GameObject.Find("End Goal(Clone)") == null)
                 {
                     yield break;
@@ -57,45 +64,45 @@ namespace Tests
             Assert.Fail();
         }
 
-        // GAMEPLAY TEST
+        // PLAYER CAN KILL
+        // Passes if player kills enemies
+        // Fails if it does not
         [UnityTest]
-        [Timeout(100000000)]
-        public IEnumerator GameplayTest()
+        public IEnumerator PlayerCanKillTest()
         {
-            MonoBehaviour.Instantiate(Resources.Load<GameObject>("Auto Player"));
-            MonoBehaviour.Instantiate(Resources.Load<GameObject>("End Goal"));
+            MonoBehaviour.Instantiate(Resources.Load<GameObject>("Auto Player2"));
             MonoBehaviour.Instantiate(Resources.Load<GameObject>("Enemy1"));
+            yield return new WaitForSeconds(5);
             
-
-            /*var target = GameObject.FindWithTag("Enemy").transform;
-            var moveSpeed = 3;
-            Transform playerTransform = GameObject.Find("Player(Clone)").transform;
-            var distance = Vector3.Distance(playerTransform.position, target.position);
-            playerTransform.position += playerTransform.forward * moveSpeed * Time.deltaTime;
-            */
-            while (GameObject.Find("End Goal(Clone)") != null)
-            {/*
-                Vector3 pos = new Vector3(3, 0.92F, Random.Range(-3, 4));
-                for (int i = 0; i < 200; i++)
-                {
-                    var enemy = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Enemy1"), pos, Quaternion.Euler(0, 90, 0));
-                    yield return new WaitForSeconds(5);
-                }*/
-                yield return new WaitForSeconds(5);
-            }
-
-            if (GameObject.Find("End Goal(Clone)") == null)
+            if (GameObject.Find("Enemy1(Clone)") == null)
             {
-                Assert.Pass();
+                yield break;
             }
 
-            else
-            {
-                Assert.Fail();
-            }
+            Assert.Fail();
         }
 
-       
+        // ENEMY CAN KILL
+        // Passes if enemy can kill player
+        // Fails if it does not
+        [UnityTest]
+        public IEnumerator EnemyCanKillTest()
+        {
+            MonoBehaviour.Instantiate(Resources.Load<GameObject>("Player"));
+
+            for (int i = 0; i < 1000; i++)
+            {
+                MonoBehaviour.Instantiate(Resources.Load<GameObject>("Enemy1"));
+                yield return new WaitForSeconds(1);
+
+                if (GameObject.Find("Player(Clone)") == null)
+                {
+                    yield break;
+                }
+            }
+
+            Assert.Fail();
+        }
 
         [SetUp]
         public void LoadScenery()

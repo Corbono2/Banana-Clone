@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     private EnemyMove moveScript;
-    public float Damage;
+    public static int Damage = 20;   // Change this value for damage output
     public float Cooldown;
     private float cd;
 
@@ -34,14 +34,19 @@ public class EnemyDamage : MonoBehaviour
                     hpScript.health -= Damage;
                     cd = Cooldown;
                     Destroy(gameObject);
+                    spawnCounter.enemyDeathCounter += 1;
                 }
             }
 
             else if (hit.transform.tag == "EndGoal")   // If its the end goal, deal damage
             {
                 Health hpScript = hit.transform.gameObject.GetComponent<Health>();
+                spawnCounter.endGoalHealthReal -= Damage;
                 hpScript.health -= Damage;
+                spawnCounter.endGoalHealth += Damage;
+                spawnCounter.enemyDeathCounter += 1;
                 Destroy(gameObject);
+                
             }
 
             moveScript.isBlocked = true;

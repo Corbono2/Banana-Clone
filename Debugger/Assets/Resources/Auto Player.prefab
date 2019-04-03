@@ -352,13 +352,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4350810687943271106}
   - component: {fileID: 8295343558632197362}
-  - component: {fileID: 2573484458488430140}
   - component: {fileID: 7202099151920546005}
   - component: {fileID: 2751041650805207593}
   - component: {fileID: 3671180449108234953}
   - component: {fileID: 2620027565668304552}
-  - component: {fileID: 6136726883279041220}
-  - component: {fileID: 2448570763316245571}
+  - component: {fileID: 3798787850410560122}
   m_Layer: 0
   m_Name: Auto Player
   m_TagString: Player
@@ -400,18 +398,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2573484458488430140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2225278920732783199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b57023526fdc4e6dac1a210bc461c50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7202099151920546005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,7 +454,7 @@ MonoBehaviour:
   rocketPrefab: {fileID: 4481506468246833395, guid: 3fe89e6b16bd7a8418affa07e77dae6d,
     type: 3}
   barrelEnd: {fileID: 1394314020208121779}
---- !u!114 &6136726883279041220
+--- !u!114 &3798787850410560122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -480,33 +466,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab39ca208029b9468b86b0d2731de73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  playerDistance: 0
-  rotationDamping: 10
-  chaseStartRange: 10
-  moveSpeed: 3
---- !u!195 &2448570763316245571
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2225278920732783199}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  enemy: {fileID: 7005170804456130815, guid: b907045c2c3f9ce478c59e3ec160d427, type: 3}
+  enemyDistance: 0
+  rotationDamping: 6
+  chaseStartRange: 0.1
+  moveSpeed: 0.1
 --- !u!1 &2361555529170695182
 GameObject:
   m_ObjectHideFlags: 0
