@@ -7,7 +7,11 @@ TagManager:
   - armiture
   - Tile
   - EndGoal
+<<<<<<< HEAD
   - Enemy
+=======
+  - WaveMachine
+>>>>>>> 82af096cee3542c32a429aec73be8ce996a5b2e0
   layers:
   - Default
   - TransparentFX
