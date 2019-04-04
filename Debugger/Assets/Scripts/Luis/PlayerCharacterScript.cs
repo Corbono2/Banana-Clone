@@ -18,7 +18,6 @@ public class PlayerCharacterScript : MonoBehaviour
     void Update()
     {
        float horizontalVal =  Input.GetAxis("Vertical");
-       float vertVal = Input.GetAxis("Horizontal");
        bool shoot = Input.GetKey("space");
        timePassed += Time.deltaTime;
        if(shoot && timePassed >= keyDelay){
@@ -29,17 +28,9 @@ public class PlayerCharacterScript : MonoBehaviour
        }
      if(horizontalVal == 0){
 animator.SetBool("move",false);
-animator.SetBool("turnright",false);
-animator.SetBool("turnleft",false);
      }else{
          if(horizontalVal>0 ){
              animator.SetBool("move",true);
-             if(vertVal>0){
-                 animator.SetBool("turnright",true);
-             }
-             if(vertVal<0){
-                 animator.SetBool("turnleft",true);
-             }
          }
      }
     }
