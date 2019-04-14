@@ -8,6 +8,10 @@ TagManager:
   - Tile
   - EndGoal
   - WaveMachine
+  - FPVCam
+  - Enemy
+  - Bullet
+  - Turret
   layers:
   - Default
   - TransparentFX
