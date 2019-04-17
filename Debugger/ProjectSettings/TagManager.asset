@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - armiture
+  - Tile
+  - EndGoal
+  - WaveMachine
+  - FPVCam
+  - Enemy
+  - Bullet
+  - Turret
   layers:
   - Default
   - TransparentFX
