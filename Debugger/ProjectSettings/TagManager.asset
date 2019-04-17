@@ -5,9 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tile
-  - Enemy
   - projectile
   - EndGoal
+  - armiture
+  - EndGoal
+  - WaveMachine
+  - FPVCam
+  - Enemy
+  - Bullet
+  - Turret
   layers:
   - Default
   - TransparentFX
@@ -19,6 +25,8 @@ TagManager:
   - 
   - Player
   - End Goal
+  - PostProcessing
+  - 
   - 
   - 
   - 
