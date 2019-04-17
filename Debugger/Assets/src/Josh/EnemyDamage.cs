@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     private EnemyMove moveScript;
-    public float Damage;
+    public static int Damage;
     public float Cooldown;
     private float cd;
 
