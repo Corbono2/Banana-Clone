@@ -1,1 +1,0 @@
-09:39:47 Enemies Dead: 56  Damage Dealt: 1120  Expected: 1120  End Goal Health at End: -120 FAIL
