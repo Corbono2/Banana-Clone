@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     public float MovementSpeed;   // Holds the value of movement speed
-    public bool isBlocked;
 
     // Update is called once per frame
     void Update()
