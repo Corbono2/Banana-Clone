@@ -7,36 +7,60 @@ using System;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance = null;
-    public Sound[] sounds;
-
+    //public Sound[] sounds;
+    //public BackgroundMusic[] sound;
+    [SerializeField]
+    public Sound[] background = new BackgroundMusic[1];
+    //public BackgroundMusic background = new BackgroundMusic();
     
     void Awake()
     {
-        if (instance == null)
-		{
-			instance = this;
-		}
-		else if (instance != this)
-		{
-			Destroy(gameObject);
-		}
+        // if (instance == null)
+		// {
+		// 	instance = this;
+		// }
+		// else if (instance != this)
+		// {
+		// 	Destroy(gameObject);
+		// }
 
-        DontDestroyOnLoad(gameObject);
+        // DontDestroyOnLoad(gameObject);
 
-
-        foreach(Sound s in sounds)
+        if(instance != null)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
+            Debug.LogError("SoundManager: More than one SoundManager in Scene");
+        }
+        else
+        {
+            instance = this;
         }
 
     }
 
-    public void Play(string soundID)
+    void Start()
     {
-        Sound s = Array.Find(sounds, item => item.soundID == soundID);
-        s.source.Play();   
+        for(int i =  0; i < background.Length; i++)
+        {
+            GameObject _go = new GameObject("Sound_" + i + "_" + background[i].soundID);
+            background[i].SetSource(_go.AddComponent<AudioSource>());
+
+        }
+        
+        PlaySound("Theme");
+    }
+
+    public void PlaySound(string name)
+    {
+        for(int i = 0; i < background.Length; i++)
+        {
+            if(background[i].soundID == name)
+            {
+                background[i].Play(); 
+                return;
+            }
+        }
+
+        Debug.LogWarning("SoundManager: Requested sound was not found");
     }
 
 }
