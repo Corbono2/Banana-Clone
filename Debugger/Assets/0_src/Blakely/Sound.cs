@@ -38,7 +38,7 @@ public class SoundEffect : Sound
 
         if(hapticResponse == true)
         {
-            Handheld.Vibrate();
+            //Handheld.Vibrate();
         }
     }
 }
