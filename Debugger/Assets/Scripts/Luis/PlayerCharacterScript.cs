@@ -6,7 +6,7 @@ public class PlayerCharacterScript : MonoBehaviour
 {
     private Animator animator;
     private float timePassed = 0f;
-    private float keyDelay = 1f;
+    private float keyDelay = 0.2f;
     public ProjectileScript myProjectile;
     // Start is called before the first frame update
     void Start()

@@ -4,31 +4,32 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    public int NumEnemies;  // Store number of enemies to be spawned
-    public GameObject[] Enemies;   // Get enemy object
-    public float Cooldown;   // Store cooldown before wave starts
-    private float cd;
+    public GameObject enemy;   // Get enemy prefab to spawn
+    public float cooldown = 3f;   // Cooldown time between spawns
+    public Transform[] spawnPoints;   // An array of the spawn points this enemy can spawn from
 
     // Start is called before the first frame update
     void Start()
     {
-        cd = Cooldown * 2;   // Cooldown value
+        // Call the Spawn function after a delay of the cooldown and continue to call after the same amount of time
+        InvokeRepeating("Spawn", cooldown, cooldown);
     }
 
-    // Update is called once per frame
-    void Update()
+    void Spawn()
     {
-        if(cd > 0)
+        Health endGoalHealth = GameObject.FindGameObjectWithTag("EndGoal").GetComponent<Health>();  // Reference to end goal health
+        // If the end goal has no health left...
+        if (endGoalHealth.health <= 0f)
         {
-            cd -= Time.deltaTime;   // If cooldown is active, decrease cooldown timer
+            // ... exit the function.
+            return;
         }
 
-        else   // Cooldown over, start wave
-        {
-            cd = Cooldown;
-            Vector3 pos = new Vector3(3, 0.92F, Random.Range(-3, 4));   // Set up to spawn enemy in random lane
-            int index = Random.Range(0, Enemies.Length);
-            Instantiate(Enemies[index], pos, Quaternion.Euler(0,90,0));   // Get the enemy object
-        }
+        // If it's still alive...
+        // Find a random index between zero and one less than the number of spawn points.
+        int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+
+        // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
+        Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
     }
 }

@@ -21,7 +21,7 @@ public class spawnCounter : MonoBehaviour
     {
         txt = GetComponent<Text>();
         string dateandtime = System.DateTime.Now.ToString("yyyy MMM dd  HH.mm.ss");
-        testOutputFile = "Assets/tst/stresstest" + "_" + dateandtime + ".txt";
+        testOutputFile = "Assets/tst/Josh/stresstest" + "_" + dateandtime + ".txt";
         var file = File.Open(testOutputFile, FileMode.OpenOrCreate, FileAccess.Write);
         writer = new StreamWriter(file);
         Health hpscript = GameObject.FindGameObjectWithTag("EndGoal").GetComponent<Health>();

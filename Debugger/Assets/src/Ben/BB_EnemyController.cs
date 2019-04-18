@@ -12,9 +12,9 @@ public class BB_EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable() {
       myAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-      target = GameObject.FindGameObjectWithTag("FPVCam").transform;
+      target = GameObject.FindGameObjectWithTag("Player").transform;
       myAnimator = GetComponent<Animator>();
-      myAnimator.Play("qiun@move_forward");
+      myAnimator.Play("quin@move_forward");
     }
 
     // Update is called once per frame
