@@ -5,10 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+<<<<<<< HEAD
+=======
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/MainScene.unity
+    guid: a5a15043b192e434586a08144fd8bed9
+>>>>>>> 9d9933dbcdc103af02597321c71252dba36eaa0f
   - enabled: 1
     path: Assets/Scenes/Joel/main.unity
     guid: f432741b10e34a3499ffe02e76d1c943
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/Joel/game.unity
     guid: 53d698867522961419c934ec862a506f
+=======
+    path: Assets/Scenes/Real_MainScene.unity
+    guid: fefbec255131c2946a2e088f3b94a144
+  - enabled: 1
+    path: Assets/tst/Josh/jt Stress Test.unity
+    guid: a57a3964e3698584d8d2d99f177b386b
+>>>>>>> 9d9933dbcdc103af02597321c71252dba36eaa0f
   m_configObjects: {}

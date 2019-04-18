@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+<<<<<<< HEAD
+  - Tile
+  - Enemy
+  - projectile
+  - EndGoal
+=======
+  - armiture
+  - Tile
+  - EndGoal
+  - WaveMachine
+  - FPVCam
+  - Enemy
+  - Bullet
+  - Turret
+>>>>>>> 8a012cb2d267e57f5fe22a3b0a4b6288c26e5a34
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+<<<<<<< HEAD
+  - Player
+  - End Goal
+=======
+  - PostProcessing
+  - 
+>>>>>>> 8a012cb2d267e57f5fe22a3b0a4b6288c26e5a34
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

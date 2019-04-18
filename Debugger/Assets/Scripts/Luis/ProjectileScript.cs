@@ -24,5 +24,7 @@ public class ProjectileScript : MonoBehaviour
         {
             Destroy(col.gameObject);
         }
+
+        Destroy(gameObject);
     }
 }

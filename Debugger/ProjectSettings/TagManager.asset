@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Tile
+  - projectile
+  - EndGoal
+  - armiture
+  - EndGoal
+  - WaveMachine
+  - FPVCam
+  - Enemy
+  - Bullet
+  - Turret
   layers:
   - Default
   - TransparentFX
@@ -13,7 +23,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Player
+  - End Goal
+  - PostProcessing
   - 
   - 
   - 
