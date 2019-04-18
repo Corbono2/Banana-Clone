@@ -9,7 +9,7 @@ public class pauseMenu : MonoBehaviour
     
     void Update() {
         if(Input.GetKeyDown(KeyCode.P)) {
-            if(!pauseIt) {
+            if(pauseIt) {
                 resume();
             }
             else {
@@ -18,7 +18,7 @@ public class pauseMenu : MonoBehaviour
         }
     }
 
-    public void resume() {
+    void resume() {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         pauseIt = false;
