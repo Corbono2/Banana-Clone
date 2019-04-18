@@ -60,10 +60,10 @@ public class BB_EnemyController : MonoBehaviour
       myAnimator.Play("quin@death_blowed");
     }
 
-    void OnCollisionEnter(Collision col) {
-      StartCoroutine(wait());
-      Destroy(col.gameObject);
-    }
+    //void OnCollisionEnter(Collision col) {
+    //  StartCoroutine(wait());
+    //  Destroy(col.gameObject);
+    //}
 
     IEnumerator wait() {
       die();

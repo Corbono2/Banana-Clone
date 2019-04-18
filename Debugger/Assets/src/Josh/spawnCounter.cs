@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.IO;
 
@@ -35,10 +36,11 @@ public class spawnCounter : MonoBehaviour
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         endGoalHealthExpected = enemyDeathCounter * EnemyDamage.Damage;
-        txt.text = "Enemies on Field: " + enemies.Length + "  " + "Enemies Dead: " + enemyDeathCounter + "  " + "Damage Dealt: " + endGoalHealth + "  " + "Expected: " + endGoalHealthExpected + "  " + "End Goal Health: " + endGoalHealthReal;
+        txt.text = "Running Josh's Stress Test\n" + "Enemies on Field: " + enemies.Length + "  " + "Enemies Dead: " + enemyDeathCounter + "  " + "Damage Dealt: " + endGoalHealth + "  " + "Expected: " + endGoalHealthExpected + "  " + "End Goal Health: " + endGoalHealthReal;
         
         if (GameObject.FindGameObjectWithTag("EndGoal") == null)
         {
+            txt.text = "Test Complete. Loading Josh's Boundary Test 1. . .";
             var dateandtime = System.DateTime.Now.ToString("HH:mm:ss");
 
             if (endGoalHealth == endGoalStart)
@@ -54,7 +56,10 @@ public class spawnCounter : MonoBehaviour
             }
 
             writer.Close();
-            Application.Quit();
+
+            System.Threading.Thread.Sleep(3000);
+            SceneManager.LoadScene("jt boundary1");
         }
     }
+
 }

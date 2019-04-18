@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    private EnemyMove moveScript;
-    public static int Damage;
+    public static int Damage = 20;   // Change this value for damage output
     public float Cooldown;
     private float cd;
 
     // Start is called before the first frame update
     void Start()
     {
-        moveScript = gameObject.GetComponent<EnemyMove>();
+
     }
 
     // Update is called once per frame
@@ -24,7 +23,7 @@ public class EnemyDamage : MonoBehaviour
         }
 
         RaycastHit hit;   // Detect the hit
-        if (Physics.Raycast(transform.position, Vector3.left, out hit, .6f))
+        if (Physics.Raycast(transform.position, Vector3.forward, out hit, .6f))
         {
             if (hit.transform.tag == "Player")   // If its the player, deal damage
             {
@@ -33,25 +32,22 @@ public class EnemyDamage : MonoBehaviour
                     Health hpScript = hit.transform.gameObject.GetComponent<Health>();
                     hpScript.health -= Damage;
                     cd = Cooldown;
+                    Destroy(gameObject);
+                    spawnCounter.enemyDeathCounter += 1;
                 }
             }
 
             else if (hit.transform.tag == "EndGoal")   // If its the end goal, deal damage
             {
                 Health hpScript = hit.transform.gameObject.GetComponent<Health>();
+                spawnCounter.endGoalHealthReal -= Damage;
                 hpScript.health -= Damage;
-                cd = Cooldown;
+                spawnCounter.endGoalHealth += Damage;
+                spawnCounter.enemyDeathCounter += 1;
+                Destroy(gameObject);
+                
             }
-
-            moveScript.isBlocked = true;
         }
-
-        else if (moveScript.isBlocked == true)
-        {
-            moveScript.isBlocked = false;
-        }
-
-
         
     }
 }

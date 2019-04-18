@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/tst/Josh/jt Stress Test.unity
     guid: a57a3964e3698584d8d2d99f177b386b
+  - enabled: 1
+    path: Assets/tst/Josh/jt boundary1.unity
+    guid: f3487739ef972f244865f79a793eb231
+  - enabled: 1
+    path: Assets/tst/Josh/jt boundary2.unity
+    guid: 57c465f744e194e469f709d2375d417f
   m_configObjects: {}
