@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 public class mainMenu : MonoBehaviour
 {
     public void play() {
-<<<<<<< HEAD
-        SceneManager.LoadScene("game");
-=======
+      //There was a merge conflict so I commented out the following line. ~Ben
+        // SceneManager.LoadScene("game");
         SceneManager.LoadScene("Real_MainScene");
     }
 
@@ -16,7 +15,6 @@ public class mainMenu : MonoBehaviour
     public void joshTest()
     {
         SceneManager.LoadScene("jt Stress Test");
->>>>>>> 9d9933dbcdc103af02597321c71252dba36eaa0f
     }
 
     public void exit() {
