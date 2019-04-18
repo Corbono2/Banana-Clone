@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class mainMenu : MonoBehaviour
 {
     public void play() {
+      //There was a merge conflict so I commented out the following line. ~Ben
+        // SceneManager.LoadScene("game");
         SceneManager.LoadScene("Real_MainScene");
     }
 
