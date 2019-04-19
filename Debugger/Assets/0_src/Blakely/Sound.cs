@@ -19,8 +19,12 @@ public abstract class Sound
         this.source.clip = clip;
     }
 
+    public void Stop()
+    {
+        source.Stop();
+    }
+
     public abstract void Play();
-    //public abstract void SetVolume();
 }
 
 [System.Serializable]
@@ -34,6 +38,24 @@ class SoundEffect : Sound
         this.volume = volume;
         this.isHaptic = isHaptic;
     }
+
+    public SoundEffect(string soundID)
+    {
+        this.soundID = soundID;
+    }
+
+    public SoundEffect(string soundID, float volume)
+    {
+        this.soundID = soundID;
+        this.volume = volume;
+    }
+
+    public SoundEffect(string soundID, bool isHaptic)
+    {
+        this.soundID = soundID;
+        this.isHaptic = isHaptic;
+    }
+
 
     public override void Play()
     {
@@ -55,6 +77,23 @@ class BackgroundMusic : Sound
     {
         this.soundID = soundID;
         this.volume = volume;
+        this.loop = loop;
+    } 
+
+    public BackgroundMusic(string soundID)
+    {
+        this.soundID = soundID;
+    } 
+
+    public BackgroundMusic(string soundID, float volume)
+    {
+        this.soundID = soundID;
+        this.volume = volume;
+    } 
+
+    public BackgroundMusic(string soundID, bool loop)
+    {
+        this.soundID = soundID;
         this.loop = loop;
     } 
 
