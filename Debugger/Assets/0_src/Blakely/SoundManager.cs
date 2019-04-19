@@ -86,6 +86,7 @@ public class SoundManager : MonoBehaviour
                 return;
             }
         }
+        Debug.LogWarning("SoundManager: Requested sound was not found");
 
         if(sound == music.soundID)
         {
