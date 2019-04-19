@@ -60,6 +60,9 @@ public class Death : MonoBehaviour
             if (isPlayer)   // Handles death of player
             {
                 Destroy(gameObject);
+
+                FindObjectOfType<SoundManager>().StopSound("Theme");
+                FindObjectOfType<SoundManager>().PlaySound("Death");
                 // Reminder: Trigger game over? Or continue game with remaining structures
             }
 

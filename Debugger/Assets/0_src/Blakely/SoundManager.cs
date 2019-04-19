@@ -9,10 +9,8 @@ public class SoundManager : MonoBehaviour
     //SoundManager properties
     //Static instance of sound Manager allows it to be accessed by any other script
     public static SoundManager instance = null;
-    [SerializeField]
-    BackgroundMusic music;
-    [SerializeField]
-    SoundEffect[] soundFx;
+    [SerializeField] BackgroundMusic music;
+    [SerializeField] SoundEffect[] soundFx;
 
     //SoundManager methods
     //Reuse from Unity 2D Roguelike tutorial of GameManager Singleton pattern
@@ -48,6 +46,8 @@ public class SoundManager : MonoBehaviour
             GameObject effect = new GameObject(soundFx[i].soundID);
             soundFx[i].SetSource(effect.AddComponent<AudioSource>());
         }
+
+        PlaySound("Theme");
     }
 
     //Play requested sound
@@ -66,6 +66,30 @@ public class SoundManager : MonoBehaviour
         if(sound == music.soundID)
         {
             music.Play();
+        }
+        else
+        {
+            //Throw warning if sound wasn't found
+            Debug.LogWarning("SoundManager: Requested sound was not found");
+        }
+    }
+
+    //Stop sound
+    public void StopSound(string sound)
+    {
+        //Check given sound name matches and soundIDs
+        for(int i = 0; i < soundFx.Length; i++)
+        {
+            if(sound == soundFx[i].soundID)
+            {
+                soundFx[i].Stop();
+                return;
+            }
+        }
+
+        if(sound == music.soundID)
+        {
+            music.Stop();
         }
         else
         {

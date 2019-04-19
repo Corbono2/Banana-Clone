@@ -25,6 +25,8 @@ public class SimpleShoot : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             GetComponent<Animator>().SetTrigger("Fire");
+
+            FindObjectOfType<SoundManager>().PlaySound("Shoot");
         }
     }
 

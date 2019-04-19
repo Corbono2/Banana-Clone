@@ -2382,6 +2382,71 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: soundFx.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: music.soundID
+      value: Theme
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: music.volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: music.clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5bb306f972aea44959ef86606c4e4398, type: 3}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: music.loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: soundFx.Array.data[0].soundID
+      value: Shoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: soundFx.Array.data[0].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: soundFx.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 77a650d1ceca04b10ad263d23d2c0083, type: 3}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: soundFx.Array.data[1].soundID
+      value: Hit
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: soundFx.Array.data[1].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: soundFx.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2cf835110ace044c9bd87fb6460ac4be, type: 3}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: soundFx.Array.data[1].isHaptic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: soundFx.Array.data[0].isHaptic
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: beefa6b404eda4468a859c82db7bd8e9, type: 3}
 --- !u!1 &1185419518

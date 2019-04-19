@@ -11,8 +11,7 @@ public abstract class Sound
     public string soundID;
     public float volume;
     public AudioClip clip;
-    [HideInInspector]       //Hides the AudioSource in inspector but still serialized
-    public AudioSource source;
+    [HideInInspector] public AudioSource source; //Hides the AudioSource in inspector but still serialized
 
     //Set each sound with a AudioSource to play them - static method
     public void SetSource(AudioSource source)
