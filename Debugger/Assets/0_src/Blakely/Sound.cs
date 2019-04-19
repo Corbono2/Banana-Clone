@@ -4,47 +4,67 @@ using UnityEngine.Audio;
 using UnityEngine;
 using System;
 
-[System.Serializable]
-public class Sound 
+public abstract class Sound
 {
     public string soundID;
     public float volume;
     public AudioClip clip;
 
-    [HideInInspector]
+    //[HideInInspector]
     public AudioSource source;
 
-    public void SetSource(AudioSource s)
+    public void SetSource(AudioSource source)
     {
-        source = s;
-        source.clip = clip;
+        this.source = source;
+        this.source.clip = clip;
     }
 
-    public virtual void Play()
-    {
-        source.Play();
-    }
+    public abstract void Play();
+    //public abstract void SetVolume();
 }
 
 [System.Serializable]
-public class SoundEffect : Sound
+class SoundEffect : Sound
 {
-    public bool hapticResponse;
-    //private AudioSource source2;
+    public bool isHaptic;
+
+    public SoundEffect(string soundID, float volume, bool isHaptic)
+    {
+        this.soundID = soundID;
+        this.volume = volume;
+        this.isHaptic = isHaptic;
+    }
 
     public override void Play()
     {
         source.Play();
 
-        if(hapticResponse == true)
+        if(isHaptic == true)
         {
-            //Handheld.Vibrate();
+            Handheld.Vibrate();
         }
     }
 }
 
 [System.Serializable]
-public class BackgroundMusic : Sound
+class BackgroundMusic : Sound
 {
     public bool loop;
+
+    public BackgroundMusic(string soundID, float volume, bool loop)
+    {
+        this.soundID = soundID;
+        this.volume = volume;
+        this.loop = loop;
+    } 
+
+    public override void Play()
+    {
+        source.Play();
+
+        if(loop == true)
+        {
+            source.loop = this.loop;
+        }
+    }
 }
