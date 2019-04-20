@@ -3,12 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+class Button {
+    public GameObject mainMenuUI;
+    public GameObject creditMenuUI;
+
+    public virtual void buttonAction() {
+        Debug.Log("Button Action");
+    }
+}
+
+class Play: Button {
+    public override void buttonAction() {
+        SceneManager.LoadScene("Real_MainScene");
+    }
+}
+
+class Credits: Button {
+ 
+    public override void buttonAction() {
+        Debug.Log("Credits Menu");
+    }
+}
+
+
 public class mainMenu : MonoBehaviour
 {
+    
+    public GameObject mainMenuUI;
+    public GameObject creditsMenuUI;
+
     public void play() {
-      //There was a merge conflict so I commented out the following line. ~Ben
-        // SceneManager.LoadScene("game");
-        SceneManager.LoadScene("Real_MainScene");
+        Play playAction = new Play();
+        playAction.buttonAction();
     }
 
     // Josh was here
@@ -17,6 +43,13 @@ public class mainMenu : MonoBehaviour
         SceneManager.LoadScene("jt Stress Test");
     }
 
+    public void credits() {
+        Credits creditsAction = new Credits();
+        creditsAction.buttonAction();
+        mainMenuUI.SetActive(false);
+        creditsMenuUI.SetActive(true);
+        
+    }
     public void exit() {
         Debug.Log("QUIT");
         Application.Quit();
