@@ -7,38 +7,35 @@ public class BB_WaveMachine : MonoBehaviour
     public GameObject enemy;
     public Transform[] spawnPoints;
     public float spawnTime = 3f;
-    public int numEnemies = 1;
     public GameObject target;
     // public EnemyPooler SharedInstance;
 
     // Start is called before the first frame update
     void Start()
     {
-      BeginSpawning();
+      beginSpawning();
     }
 
-    void BeginSpawning() {
+    //Calls the spawn() function per the spawnTime frequency
+    void beginSpawning() {
       InvokeRepeating("Spawn", spawnTime, spawnTime);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    //Spawns and enemy at one of the spawnPoints -- chosen randomly
     void Spawn() {
-      // if(target == null) {
-      //   return;
-      // }
-
+      //Get a random index
       int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+
+      //Get an enemy from the object pool
       GameObject newEnemy = EnemyPooler.SharedInstance.GetPooledObject();
+
       if (newEnemy != null) {
+        //Set the position of the new enemy to the random spawn point
         newEnemy.transform.position = spawnPoints[spawnPointIndex].position;
         newEnemy.transform.rotation = spawnPoints[spawnPointIndex].rotation;
+
+        //Activate the enemy
         newEnemy.SetActive(true);
-        numEnemies++;
         Debug.Log("Spawned enemy");
       }
 

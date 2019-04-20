@@ -4,40 +4,44 @@ using UnityEngine;
 
 public class BB_EnemyController : MonoBehaviour
 {
-    private UnityEngine.AI.NavMeshAgent myAgent;
+    private UnityEngine.AI.NavMeshAgent myNavmeshAgent;
     Transform target;
     public Animator myAnimator;
     private bool hasArrived = false;
 
     // Start is called before the first frame update
     void OnEnable() {
-      myAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-      target = GameObject.FindGameObjectWithTag("Player").transform;
+      //Set up navemesh agent
+      myNavmeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+      //Set the target for the enemy to move towards
+      target = GameObject.FindGameObjectWithTag("FPVCam").transform;
       myAnimator = GetComponent<Animator>();
-      myAnimator.Play("quin@move_forward");
+      myAnimator.Play("quin@move_forward"); //Start the moving animation
     }
 
     // Update is called once per frame
     void Update()
     {
       if(hasArrived) {
-        return;
+        return; //If the enemy has arrived, it doesn't need to be moving
       }
 
       if(target == null) {
+        //If there's no target yet, we can use the idling animation
         myAnimator.Play("quin@idle");
         return;
       }
 
-      myAgent.SetDestination(target.position);
+      myNavmeshAgent.SetDestination(target.position);
       // Check if we've reached the destination
-      if (!myAgent.pathPending) {
-          if (myAgent.remainingDistance <= myAgent.stoppingDistance) {
-              if (!myAgent.hasPath || myAgent.velocity.sqrMagnitude == 0f) {
-                attackRight();
+      if (!myNavmeshAgent.pathPending) {
+          if (myNavmeshAgent.remainingDistance <= myNavmeshAgent.stoppingDistance) {
+              if (!myNavmeshAgent.hasPath || myNavmeshAgent.velocity.sqrMagnitude == 0f) {
+                attackRight(); //Play the attack animation
                 hasArrived = true;
               }
               else {
+                //Make sure the moving animation is being played
                 myAnimator.Play("qiun@move_forward");
               }
           }
@@ -60,19 +64,23 @@ public class BB_EnemyController : MonoBehaviour
       myAnimator.Play("quin@death_blowed");
     }
 
-    //void OnCollisionEnter(Collision col) {
-    //  StartCoroutine(wait());
-    //  Destroy(col.gameObject);
-    //}
-
-    IEnumerator wait() {
-      die();
-      myAgent.isStopped = true;
-      yield return new WaitForSecondsRealtime(2);
-      gameObject.SetActive(false);
+    //Handles when a bullet collides with the enemy
+    void OnCollisionEnter(Collision col) {
+      //Start the death sequence
+      StartCoroutine(deathSequence());
+      //Destroy the bullet
+      Destroy(col.gameObject);
     }
 
-    // void OnAnimatorMove() {
-    //   myAgent.speed = (myAnimator.deltaPosition / Time.deltaTime).magnitude;
-    // }
+
+    //This function handles when the enemy should be killed
+    IEnumerator deathSequence() {
+      die(); //Play the die animation
+      //Stop the navmesh agent
+      myNavmeshAgent.isStopped = true;
+      //Wait a couple seconds while the enemy dies and lies dead
+      yield return new WaitForSecondsRealtime(2);
+      //Deactivate the enemy so it's ready to be reused in the future
+      gameObject.SetActive(false);
+    }
 }

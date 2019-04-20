@@ -16,30 +16,35 @@ public class BB_EnemyController_TargetEG : MonoBehaviour
       myAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
       target = GameObject.FindGameObjectWithTag("EndGoal").transform;   // Line modified by Josh
       myAnimator = GetComponent<Animator>();
-      myAnimator.Play("quin@move_forward");
+      myAnimator.Play("quin@move_forward"); //Start the moving animation
     }
 
     // Update is called once per frame
     void Update()
     {
       if(hasArrived) {
-        return;
+        return; //If the enemy has arrived it can stop moving
       }
 
+      //If there is no target, no movement will occur so we can use the idle animation
       if(target == null) {
         myAnimator.Play("quin@idle");
         return;
       }
 
+      //Set the target for the enemy to move towards
       myAgent.SetDestination(target.position);
+
       // Check if we've reached the destination
       if (!myAgent.pathPending) {
           if (myAgent.remainingDistance <= myAgent.stoppingDistance) {
               if (!myAgent.hasPath || myAgent.velocity.sqrMagnitude == 0f) {
+                //Play the attacking animation
                 attackRight();
                 hasArrived = true;
               }
               else {
+                //Make sure the enemy is using the moving animation
                 myAnimator.Play("qiun@move_forward");
               }
           }
@@ -62,12 +67,6 @@ public class BB_EnemyController_TargetEG : MonoBehaviour
       myAnimator.Play("quin@death_blowed");
     }
 
-    /*void OnCollisionEnter(Collision col) {
-      StartCoroutine(wait());
-      Destroy(col.gameObject);
-    }
-    */
-
     IEnumerator wait() {
       die();
       myAgent.isStopped = true;
@@ -75,7 +74,4 @@ public class BB_EnemyController_TargetEG : MonoBehaviour
       gameObject.SetActive(false);
     }
 
-    // void OnAnimatorMove() {
-    //   myAgent.speed = (myAnimator.deltaPosition / Time.deltaTime).magnitude;
-    // }
 }

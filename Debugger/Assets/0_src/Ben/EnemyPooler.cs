@@ -17,8 +17,10 @@ public class EnemyPooler : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
+    //Create a list of objects
     pooledObjects = new List<GameObject>();
 
+    //Pool the appropriate amount of objects and make sure they are inactive
     for (int i = 0; i < amountToPool; i++) {
       GameObject obj = (GameObject)Instantiate(objectToPool);
       obj.SetActive(false);
@@ -28,14 +30,11 @@ public class EnemyPooler : MonoBehaviour
   }
 
   public GameObject GetPooledObject() {
-    //1
     for (int i = 0; i < pooledObjects.Count; i++) {
-      //2
       if (!pooledObjects[i].activeInHierarchy) {
         return pooledObjects[i];
       }
     }
-    //3
     return null;
   }
 
