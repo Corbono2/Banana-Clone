@@ -4,47 +4,119 @@ using UnityEngine.Audio;
 using UnityEngine;
 using System;
 
-[System.Serializable]
-public class Sound 
+//Abstract class for template pattern
+public abstract class Sound
 {
+    //Sound Properties
     public string soundID;
     public float volume;
     public AudioClip clip;
+    [HideInInspector] public AudioSource source; //Hides the AudioSource in inspector but still serialized
 
-    [HideInInspector]
-    public AudioSource source;
-
-    public void SetSource(AudioSource s)
+    //Set each sound with a AudioSource to play them - static method
+    public void SetSource(AudioSource source)
     {
-        source = s;
-        source.clip = clip;
+        this.source = source;
+        this.source.clip = clip;
     }
 
-    public virtual void Play()
+    //Stop sound playback - static method
+    public void Stop()
     {
-        source.Play();
+        source.Stop();
     }
+
+    //Template method to play sound
+    public abstract void Play();
 }
 
+//Concrete class SoundEffect - Manages game soundeffects
+//System.Serializable allows embedding of a class in the inspector
 [System.Serializable]
-public class SoundEffect : Sound
+class SoundEffect : Sound
 {
-    public bool hapticResponse;
-    //private AudioSource source2;
+    //SoundEffect properties
+    public bool isHaptic;
 
+    //SoundEffect Methods
+    public SoundEffect(string soundID, float volume, bool isHaptic)
+    {
+        this.soundID = soundID;
+        this.volume = volume;
+        this.isHaptic = isHaptic;
+    }
+
+    public SoundEffect(string soundID)
+    {
+        this.soundID = soundID;
+    }
+
+    public SoundEffect(string soundID, float volume)
+    {
+        this.soundID = soundID;
+        this.volume = volume;
+    }
+
+    public SoundEffect(string soundID, bool isHaptic)
+    {
+        this.soundID = soundID;
+        this.isHaptic = isHaptic;
+    }
+
+    //Override abstract template - allows haptic response
     public override void Play()
     {
         source.Play();
 
-        if(hapticResponse == true)
+        if(isHaptic == true)
         {
-            //Handheld.Vibrate();
+            Handheld.Vibrate();
         }
     }
 }
 
+//Concrete class BackgroundMusic - Manages game music
+//System.Serializable allows embedding of a class in the inspector
 [System.Serializable]
-public class BackgroundMusic : Sound
+class BackgroundMusic : Sound
 {
+    //BackgroundMusic properties
     public bool loop;
+
+
+    //BackgroundMusic methods 
+    public BackgroundMusic(string soundID, float volume, bool loop)
+    {
+        this.soundID = soundID;
+        this.volume = volume;
+        this.loop = loop;
+    } 
+
+    public BackgroundMusic(string soundID)
+    {
+        this.soundID = soundID;
+    } 
+
+    public BackgroundMusic(string soundID, float volume)
+    {
+        this.soundID = soundID;
+        this.volume = volume;
+    } 
+
+    public BackgroundMusic(string soundID, bool loop)
+    {
+        this.soundID = soundID;
+        this.loop = loop;
+    } 
+
+    //Override abstract template - allows looping
+    public override void Play()
+    {
+        source.Play();
+
+        if(loop == true)
+        {
+            source.loop = this.loop;
+        }
+    }
 }

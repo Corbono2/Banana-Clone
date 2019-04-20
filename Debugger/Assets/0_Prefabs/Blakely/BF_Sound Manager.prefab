@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 116233081827336366}
   - component: {fileID: 2885501938936558473}
   m_Layer: 0
-  m_Name: Sound Manager
+  m_Name: BF_Sound Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,3 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63aeeb3c0def4fbdad3f674156828cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background:
+  - soundID: 
+    volume: 0
+    clip: {fileID: 0}
+    source: {fileID: 0}

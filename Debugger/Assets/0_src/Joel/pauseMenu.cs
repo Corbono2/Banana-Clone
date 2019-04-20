@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class pauseMenu : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class pauseMenu : MonoBehaviour
     
     void Update() {
         if(Input.GetKeyDown(KeyCode.P)) {
-            if(!pauseIt) {
+            if(pauseIt) {
                 resume();
             }
             else {
@@ -20,14 +21,14 @@ public class pauseMenu : MonoBehaviour
 
     public void resume() {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        Time.timeScale = 1;
         pauseIt = false;
 
     }
 
     void pause() {
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
+        Time.timeScale = 0;
         pauseIt = true;
     }
 
