@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 class Button {
-    public GameObject mainMenuUI;
-    public GameObject creditMenuUI;
-
     public virtual void buttonAction() {
         Debug.Log("Button Action");
+    }
+    public virtual void backAction() {
+        Debug.Log("Back it up!");
     }
 }
 
@@ -21,17 +21,25 @@ class Play: Button {
 class Credits: Button {
  
     public override void buttonAction() {
-        Debug.Log("Credits Menu");
+        Debug.Log("Credits");
     }
 }
 
+class Tutorial: Button {
+    public override void buttonAction() {
+        Debug.Log("Tutorial");
+    }
+}
 
 public class mainMenu : MonoBehaviour
 {
     
     public GameObject mainMenuUI;
     public GameObject creditsMenuUI;
-
+    public GameObject tutorialMenuUI;
+            
+    Credits creditsAction = new Credits();
+    Tutorial tutorialAction = new Tutorial();
     public void play() {
         Play playAction = new Play();
         playAction.buttonAction();
@@ -44,11 +52,28 @@ public class mainMenu : MonoBehaviour
     }
 
     public void credits() {
-        Credits creditsAction = new Credits();
         creditsAction.buttonAction();
         mainMenuUI.SetActive(false);
         creditsMenuUI.SetActive(true);
         
+    }
+
+    public void backCredits() {
+        creditsAction.backAction();
+        creditsMenuUI.SetActive(false);
+        mainMenuUI.SetActive(true);
+    }
+
+    public void tutorial() {;
+        tutorialAction.buttonAction();
+        mainMenuUI.SetActive(false);
+        tutorialMenuUI.SetActive(true);
+    }
+
+    public void backTutorial() {
+        tutorialAction.backAction();
+        tutorialMenuUI.SetActive(false);
+        mainMenuUI.SetActive(true);
     }
     public void exit() {
         Debug.Log("QUIT");
