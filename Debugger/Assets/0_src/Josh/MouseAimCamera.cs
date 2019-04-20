@@ -4,6 +4,7 @@ using UnityEngine;
 
 /* This script sets a camera that follows the character in the third person
  * It makes it possible to control the character on the horizontal plane through the mouse
+ * Basically copy and pasted from https://code.tutsplus.com/tutorials/unity3d-third-person-cameras--mobile-11230
  */
 
 public class MouseAimCamera : MonoBehaviour

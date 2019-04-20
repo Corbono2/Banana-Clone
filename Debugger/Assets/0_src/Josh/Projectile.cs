@@ -2,41 +2,57 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Attach script to bullet prefab for object pooling
+
 public class Projectile : MonoBehaviour
 {
-    public float speed;
+    public float Damage;
 
-    private Transform enemy;
-    private Vector3 target;
-
-    // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        enemy = GameObject.FindGameObjectWithTag("Enemy").transform;
-        target = new Vector3(enemy.position.x, enemy.position.y, enemy.position.z);
+        transform.GetComponent<Rigidbody>().WakeUp();
+        Invoke("hideBullet", 2.0f); // Sets bullet to inactive after 2 seconds without collison
     }
 
-    // Update is called once per frame
-    void Update()
+    void hideBullet()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        gameObject.SetActive(false);    //Sets bullet to inactive
+    }
 
-        if(transform.position.x == target.x && transform.position.y == target.y && transform.position.z == target.z)
+    private void OnDisable()
+    {
+        transform.GetComponent<Rigidbody>().Sleep();
+        CancelInvoke();
+    }
+
+    // Destroys the enemy if collision detected
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Enemy")
         {
-            destroyProjectile();
+            Destroy(collision.gameObject);    //Comment/Uncomment this for kill in 1 hit
+
+            gameObject.SetActive(false);
         }
     }
 
-    void OnTriggerEnter3D(Collider collision)
+    //Reminder to make some sort of damage system
+    /*private void Update()
     {
-        if (collision.CompareTag("Enemy"))
+        RaycastHit hit;   // Detect the hit
+        if (Physics.Raycast(transform.position, Vector3.forward, out hit, .6f))
         {
-            destroyProjectile();
+            if (hit.transform.tag == "Enemy")   // If its the enemy, deal damage
+            {
+                {
+                    Health hpScript = hit.transform.gameObject.GetComponent<Health>();
+                    hpScript.health -= Damage;
+                }
+            }
         }
-    }
+    }*/
 
-    void destroyProjectile()
-    {
-        Destroy(gameObject);
-    }
 }
+      
+       
+

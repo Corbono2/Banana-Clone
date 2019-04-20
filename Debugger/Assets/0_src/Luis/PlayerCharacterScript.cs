@@ -19,14 +19,14 @@ public class PlayerCharacterScript : MonoBehaviour
     {
        float horizontalVal =  Input.GetAxis("Vertical");
        float vertVal = Input.GetAxis("Horizontal");
-       bool shoot = Input.GetKey("space");
+       /*bool shoot = Input.GetKey("space");
        timePassed += Time.deltaTime;
        if(shoot && timePassed >= keyDelay){
            timePassed = 0f;
             myProjectile = Instantiate(myProjectile, animator.bodyPosition, Quaternion.identity);
              myProjectile.GetComponent<Rigidbody>().AddForce(transform.forward * 150);
            //Instantiate(myProjectile);
-       }
+       }*/
      if(horizontalVal == 0){
 animator.SetBool("move",false);
 animator.SetBool("turnright",false);
