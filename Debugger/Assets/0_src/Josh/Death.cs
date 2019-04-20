@@ -43,7 +43,7 @@ public class Death : MonoBehaviour
                 if (!isTestScene)
                 {
                     Destroy(gameObject);
-                    SceneManager.LoadScene("main");
+                    SceneManager.LoadScene("mainMenu");
                 }
 
                 else

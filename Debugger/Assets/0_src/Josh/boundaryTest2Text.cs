@@ -33,7 +33,7 @@ public class boundaryTest2Text : MonoBehaviour
         {
             txt.text = "If you're reading this, the test failed. . . Back to main menu in 3 seconds. . .";
             System.Threading.Thread.Sleep(3000);
-            SceneManager.LoadScene("main");
+            SceneManager.LoadScene("mainMenu");
         }
     }
 
