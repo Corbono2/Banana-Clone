@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
 {
     public float Damage;
 
-    private void OnEnable()
+    public void OnEnable()
     {
         transform.GetComponent<Rigidbody>().WakeUp();
         Invoke("hideBullet", 2.0f); // Sets bullet to inactive after 2 seconds without collison
@@ -19,14 +19,15 @@ public class Projectile : MonoBehaviour
         gameObject.SetActive(false);    //Sets bullet to inactive
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         transform.GetComponent<Rigidbody>().Sleep();
         CancelInvoke();
     }
 
     // Destroys the enemy if collision detected
-    private void OnCollisionEnter(Collision collision)
+    // Set to virtual for default fire
+    public virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "Enemy")
         {
