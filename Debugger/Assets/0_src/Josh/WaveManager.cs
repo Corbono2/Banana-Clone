@@ -7,6 +7,7 @@ public class WaveManager : MonoBehaviour
     public GameObject enemy;   // Get enemy prefab to spawn
     public float cooldown = 3f;   // Cooldown time between spawns
     public Transform[] spawnPoints;   // An array of the spawn points this enemy can spawn from
+    public BB_WaveMachine bb_waveMachine; //Added by Ben to handle spawning
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +26,15 @@ public class WaveManager : MonoBehaviour
             return;
         }
 
-        // If it's still alive...
-        // Find a random index between zero and one less than the number of spawn points.
-        int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+        bb_waveMachine.Spawn(); //Added by Ben to spawn an enemy
+        return;
 
-        // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
-        Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+        // 
+        // // If it's still alive...
+        // // Find a random index between zero and one less than the number of spawn points.
+        // int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+        //
+        // // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
+        // Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
     }
 }

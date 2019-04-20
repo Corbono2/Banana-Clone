@@ -22,7 +22,7 @@ public class BB_WaveMachine : MonoBehaviour
     }
 
     //Spawns and enemy at one of the spawnPoints -- chosen randomly
-    void Spawn() {
+    public void Spawn() {
       //Get a random index
       int spawnPointIndex = Random.Range(0, spawnPoints.Length);
 

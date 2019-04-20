@@ -70,7 +70,7 @@ class SoundEffect : Sound
 
         if(isHaptic == true)
         {
-            Handheld.Vibrate();
+            // Handheld.Vibrate(); <- commented out so the project can build and run ~Ben
         }
     }
 }
@@ -84,30 +84,30 @@ class BackgroundMusic : Sound
     public bool loop;
 
 
-    //BackgroundMusic methods 
+    //BackgroundMusic methods
     public BackgroundMusic(string soundID, float volume, bool loop)
     {
         this.soundID = soundID;
         this.volume = volume;
         this.loop = loop;
-    } 
+    }
 
     public BackgroundMusic(string soundID)
     {
         this.soundID = soundID;
-    } 
+    }
 
     public BackgroundMusic(string soundID, float volume)
     {
         this.soundID = soundID;
         this.volume = volume;
-    } 
+    }
 
     public BackgroundMusic(string soundID, bool loop)
     {
         this.soundID = soundID;
         this.loop = loop;
-    } 
+    }
 
     //Override abstract template - allows looping
     public override void Play()

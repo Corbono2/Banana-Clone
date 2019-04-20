@@ -14,7 +14,7 @@ public class BB_EnemyController : MonoBehaviour
       //Set up navemesh agent
       myNavmeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
       //Set the target for the enemy to move towards
-      target = GameObject.FindGameObjectWithTag("FPVCam").transform;
+      target = GameObject.FindGameObjectWithTag("EndGoal").transform;
       myAnimator = GetComponent<Animator>();
       myAnimator.Play("quin@move_forward"); //Start the moving animation
     }
