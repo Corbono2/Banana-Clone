@@ -3,7 +3,12 @@
 * The script provides functionality to the main menu of the
 * "Debugger" game. An example of dynamic binding can be seen
 * through use of the virtual void functions found in the Button
-* class.
+* class. A pattern can be seen in each subclass of Button.
+* Each button in the menu UI is represented in this program
+* by its own class. Code reuse is demonstrated by the virtual
+* function found in the Button class. This function is reused and
+* modified to perform specific task dependent on which subclass
+* is overriding the virtual function. 
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -79,15 +84,27 @@ class Tutorial: Button {
     }
 }
 
-public class mainMenu : MonoBehaviour
-{
-    
+class Exit: Button {
+    public override void buttonAction() {
+        Debug.Log("QUIT");
+        Application.Quit();    
+    }
+}
+public class mainMenu : MonoBehaviour {
+    //Game objects
     public GameObject mainMenuUI;
     public GameObject creditsMenuUI;
     public GameObject tutorialMenuUI;
-            
+
+    //Button objects 
     Credits creditsAction = new Credits();
     Tutorial tutorialAction = new Tutorial();
+
+    /*play
+    INPUT: none
+    OUTPUT: void
+    This function creates a Play object and calls its playAction functon.
+     */
     public void play() {
         Play playAction = new Play();
         playAction.buttonAction();
@@ -99,6 +116,12 @@ public class mainMenu : MonoBehaviour
         SceneManager.LoadScene("jt Stress Test");
     }
 
+    /*credits
+     INPUT: none
+     OUTPUT: void
+     This function provides the functionality for the credits
+     button 
+      */
     public void credits() {
         creditsAction.buttonAction();
         mainMenuUI.SetActive(false);
@@ -106,25 +129,49 @@ public class mainMenu : MonoBehaviour
         
     }
 
+    /*backCredits
+     INPUT: none
+     OUTPUT: void
+     This function provides the functionality for the back button
+     found in the CreditsMenuUI. 
+      */
     public void backCredits() {
         creditsAction.backAction();
         creditsMenuUI.SetActive(false);
         mainMenuUI.SetActive(true);
     }
 
+    /*tutorial
+     INPUT: none
+     OUTPUT: void
+     This function provides the functionality for the tutorial button. 
+      */
     public void tutorial() {;
         tutorialAction.buttonAction();
         mainMenuUI.SetActive(false);
         tutorialMenuUI.SetActive(true);
     }
 
+
+    /*backTutorial
+     INPUT: none
+     OUTPUT: void
+     This function provides the functionality for the back button
+     found in the TutorialMenuUI. 
+      */
     public void backTutorial() {
         tutorialAction.backAction();
         tutorialMenuUI.SetActive(false);
         mainMenuUI.SetActive(true);
     }
+
+    /*exit
+     INPUT: none
+     OUTPUT: void
+     This function provides the functionality for the exit button. 
+      */
     public void exit() {
-        Debug.Log("QUIT");
-        Application.Quit();
+        Exit exitAction = new Exit();
+        exitAction.buttonAction();
     }
 }
