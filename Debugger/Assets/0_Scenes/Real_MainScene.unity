@@ -7500,8 +7500,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dff1903443ed8d041a2994f4147e3d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 1041243608852264, guid: de726314516260d448c84b6f9c21a57e, type: 3}
-  pooledAmount: 10
+  bullet1: {fileID: 1041243608852264, guid: de726314516260d448c84b6f9c21a57e, type: 3}
+  bullet2: {fileID: 1041243608852264, guid: e9a0fc2c701c07649a66706fd6759b6c, type: 3}
+  pooledAmount: 5
 --- !u!195 &2110064554
 NavMeshAgent:
   m_ObjectHideFlags: 0
