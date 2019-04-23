@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //Modified by Josh for stress testing
 
@@ -17,26 +18,29 @@ public class BB_EnemyController_TargetEG : MonoBehaviour
       target = GameObject.FindGameObjectWithTag("EndGoal").transform;   // Line modified by Josh
       myAnimator = GetComponent<Animator>();
       myAnimator.Play("quin@move_forward"); //Start the moving animation
+     
     }
 
     // Update is called once per frame
     void Update()
     {
-      if(hasArrived) {
-        return; //If the enemy has arrived it can stop moving
-      }
+      if(hasArrived)
+        {
+            SceneManager.LoadScene(sceneName: "mainMenu"); //***************************************************Tried Brute Force Load Scene Here*******************
+            return; //If the enemy has arrived it can stop moving
+        }
 
       //If there is no target, no movement will occur so we can use the idle animation
       if(target == null) {
-        myAnimator.Play("quin@idle");
-        return;
+        myAnimator.Play("quin@idle");//*************************************FLAG*****************************************, Not working as intended
+            return;
       }
 
       //Set the target for the enemy to move towards
-      myAgent.SetDestination(target.position);
+      myAgent.SetDestination(target.position); //*************************************FLAG*****************************************
 
       // Check if we've reached the destination
-      if (!myAgent.pathPending) {
+        if (!myAgent.pathPending) {
           if (myAgent.remainingDistance <= myAgent.stoppingDistance) {
               if (!myAgent.hasPath || myAgent.velocity.sqrMagnitude == 0f) {
                 //Play the attacking animation
