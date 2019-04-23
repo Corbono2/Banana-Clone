@@ -42,14 +42,14 @@ public class Death : MonoBehaviour
             {
                 if (!isTestScene)
                 {
-                    Destroy(gameObject);
-                    SceneManager.LoadScene("mainMenu");
+                    Destroy(gameObject);// ****************************************FLAG*************************************
+                    SceneManager.LoadScene(sceneName: "mainMenu");
                 }
 
                 else
                 {
-                    Destroy(gameObject);
-                    SceneManager.LoadScene("mainMenu");
+                    Destroy(gameObject);// ****************************************FLAG*************************************
+                    SceneManager.LoadScene(sceneName: "mainMenu");
                 }
             }
 
@@ -60,7 +60,7 @@ public class Death : MonoBehaviour
 
             if (isPlayer)   // Handles death of player
             {
-                Destroy(gameObject);
+                Destroy(gameObject);// ****************************************FLAG*************************************
 
                 FindObjectOfType<SoundManager>().StopSound("Theme");
                 FindObjectOfType<SoundManager>().PlaySound("Death");

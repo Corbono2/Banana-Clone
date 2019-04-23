@@ -18,7 +18,7 @@ public class WaveManager : MonoBehaviour
 
     void Spawn()
     {
-        Health endGoalHealth = GameObject.FindGameObjectWithTag("EndGoal").GetComponent<Health>();  // Reference to end goal health
+        Health endGoalHealth = GameObject.FindGameObjectWithTag("EndGoal").GetComponent<Health>();  // Reference to end goal health// ****************************************FLAG*************************************
         // If the end goal has no health left...
         if (endGoalHealth.health <= 0f)
         {

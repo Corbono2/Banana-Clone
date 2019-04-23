@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
     {
         if (collision.transform.tag == "Enemy")
         {
-            Destroy(collision.gameObject);    //Comment/Uncomment this for kill in 1 hit
+            // Destroy(collision.gameObject);    //Comment/Uncomment this for kill in 1 hit// ****************************************FLAG*************************************
 
             gameObject.SetActive(false);
         }

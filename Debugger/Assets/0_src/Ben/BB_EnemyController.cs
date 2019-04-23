@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BB_EnemyController : MonoBehaviour
 {
@@ -8,15 +9,24 @@ public class BB_EnemyController : MonoBehaviour
     Transform target;
     public Animator myAnimator;
     private bool hasArrived = false;
+    public GameObject someGameObject;
 
     // Start is called before the first frame update
     void OnEnable() {
       //Set up navemesh agent
       myNavmeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-      //Set the target for the enemy to move towards
-      target = GameObject.FindGameObjectWithTag("EndGoal").transform;
-      myAnimator = GetComponent<Animator>();
-      myAnimator.Play("quin@move_forward"); //Start the moving animation
+        //Set the target for the enemy to move towards
+        someGameObject = GameObject.FindGameObjectWithTag("EndGoal");
+        if (someGameObject.activeInHierarchy == true)
+        {
+            target = GameObject.FindGameObjectWithTag("EndGoal").transform;// ****************************************FLAG*************************************
+        }
+
+          myAnimator = GetComponent<Animator>();
+        //public void Play(string stateName, int layer = -1, float normalizedTime = float.NegativeInfinity);
+        //public void Play(int stateNameHash, int layer = -1, float normalizedTime = float.NegativeInfinity)
+        //https://docs.unity3d.com/ScriptReference/Animator.Play.html
+        // myAnimator.Play("quin@move_forward"); //Start the moving animation// ****************************************FLAG*************************************
     }
 
     // Update is called once per frame
@@ -69,7 +79,7 @@ public class BB_EnemyController : MonoBehaviour
       //Start the death sequence
       StartCoroutine(deathSequence());
       //Destroy the bullet
-      Destroy(col.gameObject);
+      Destroy(col.gameObject);  // ****************************************FLAG*************************************
     }
 
 

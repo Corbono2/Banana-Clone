@@ -40,15 +40,17 @@ public class Shoot : MonoBehaviour
     {
         for (int i = 0; i < bulletList.Count; i++)
         {
-            if (!bulletList[i].activeInHierarchy)
-            {
-                bulletList[i].transform.position = transform.position;
-                bulletList[i].transform.rotation = transform.rotation;
-                bulletList[i].SetActive(true);
-                Rigidbody tempRigidBodyBullet = bulletList[i].GetComponent<Rigidbody>();
-                tempRigidBodyBullet.AddForce(tempRigidBodyBullet.transform.forward * bulletSpeed);
-                break;
-            }
+            
+                if (!bulletList[i].activeInHierarchy)
+                {
+                    bulletList[i].transform.position = transform.position;
+                    bulletList[i].transform.rotation = transform.rotation;
+                    bulletList[i].SetActive(true);
+                    Rigidbody tempRigidBodyBullet = bulletList[i].GetComponent<Rigidbody>();
+                    tempRigidBodyBullet.AddForce(tempRigidBodyBullet.transform.forward * bulletSpeed);
+                    break;
+                }
+            
         }
 
     }
@@ -59,7 +61,7 @@ public class Shoot : MonoBehaviour
 
         for (int i = 0; i < bulletList2.Count; i++)
         {
-            if (!bulletList2[i].activeInHierarchy)
+            if (!bulletList2[i].activeInHierarchy) 
             {
                 bulletList2[i].transform.position = transform.position;
                 bulletList2[i].transform.rotation = transform.rotation;
