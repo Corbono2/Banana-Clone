@@ -46,7 +46,7 @@ public class Shoot : MonoBehaviour
                     bulletList[i].transform.position = transform.position;
                     bulletList[i].transform.rotation = transform.rotation;
                     bulletList[i].SetActive(true);
-                    Rigidbody tempRigidBodyBullet = bulletList[i].GetComponent<Rigidbody>();
+                    Rigidbody tempRigidBodyBullet = bulletList[i].GetComponent<Rigidbody>();// *****************If Destroyed this is where the error is maybe?
                     tempRigidBodyBullet.AddForce(tempRigidBodyBullet.transform.forward * bulletSpeed);
                     break;
                 }
