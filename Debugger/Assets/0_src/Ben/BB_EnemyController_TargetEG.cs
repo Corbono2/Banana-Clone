@@ -71,7 +71,9 @@ public class BB_EnemyController_TargetEG : MonoBehaviour
       die();
       myAgent.isStopped = true;
       yield return new WaitForSecondsRealtime(2);
-      gameObject.SetActive(false);
+      // gameObject.SetActive(false);
+      // yeet the enemies instead of banishing them to the shadow realm
+      gameObject.transform.position = new Vector3(10,-10,16);
     }
 
 }

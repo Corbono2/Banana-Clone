@@ -44,7 +44,9 @@ public class EnemyDamage : MonoBehaviour
                 hpScript.health -= Damage;
                 spawnCounter.endGoalHealth += Damage;
                 spawnCounter.enemyDeathCounter += 1;
-                Destroy(gameObject);
+                // Destroy(gameObject);
+                // yeet the enemies instead of banishing them to the shadow realm
+                gameObject.transform.position = new Vector3(10,0,16);
                 
             }
         }
