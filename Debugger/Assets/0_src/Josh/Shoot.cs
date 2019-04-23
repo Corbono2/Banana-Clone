@@ -21,6 +21,7 @@ public class Shoot : MonoBehaviour
         for (int i = 0; i < pooledAmount; i++)
         {
             GameObject objBullet = (GameObject)Instantiate(bullet1);
+            objBullet.name = "bullet";
             objBullet.SetActive(false);
             bulletList.Add(objBullet);
         }
@@ -55,24 +56,6 @@ public class Shoot : MonoBehaviour
 
     }
 
-    //If bullet currently inactive in hierarchy, fire it
-    void Fire2()
-    {
-
-        for (int i = 0; i < bulletList2.Count; i++)
-        {
-            if (!bulletList2[i].activeInHierarchy) 
-            {
-                bulletList2[i].transform.position = transform.position;
-                bulletList2[i].transform.rotation = transform.rotation;
-                bulletList2[i].SetActive(true);
-                Rigidbody tempRigidBodyBullet2 = bulletList2[i].GetComponent<Rigidbody>();
-                tempRigidBodyBullet2.AddForce(tempRigidBodyBullet2.transform.forward * bulletSpeed);
-                break;
-            }
-        }
-    }
-
     //Shoot if left click/space inputted 
     void Update()
     {
@@ -80,12 +63,5 @@ public class Shoot : MonoBehaviour
         {
             Fire();
         }
-
-        if (Input.GetButtonDown("Fire2"))
-        {
-            Fire2();
-        }
-
-
     }
 }

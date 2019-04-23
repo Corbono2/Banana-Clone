@@ -76,10 +76,13 @@ public class BB_EnemyController : MonoBehaviour
 
     //Handles when a bullet collides with the enemy
     void OnCollisionEnter(Collision col) {
-      //Start the death sequence
-      StartCoroutine(deathSequence());
-      //Destroy the bullet
-      col.gameObject.SetActive(false);  // ****************************************FLAG*************************************
+        //Start the death sequence
+        StartCoroutine(deathSequence());
+        //Destroy the bullet
+        if(col.gameObject.name == "bullet")
+        {
+            col.gameObject.SetActive(false);  // ****************************************FLAG*************************************
+        }
     }
 
 

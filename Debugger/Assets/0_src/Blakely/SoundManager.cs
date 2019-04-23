@@ -27,7 +27,6 @@ public class SoundManager : MonoBehaviour
         {
             //Then destroy this. This enforces a singleton pattern.
             Destroy(gameObject);
-            Debug.LogError("SoundManager: More than one SoundManager in Scene");
         }
         //Sets this to not be destroyed when reloading done
         DontDestroyOnLoad(gameObject);
