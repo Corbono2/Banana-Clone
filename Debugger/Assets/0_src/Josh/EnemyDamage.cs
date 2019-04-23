@@ -39,6 +39,7 @@ public class EnemyDamage : MonoBehaviour
 
             else if (hit.transform.tag == "EndGoal")   // If its the end goal, deal damage
             {
+                Debug.Log("Hit Goal");
                 Health hpScript = hit.transform.gameObject.GetComponent<Health>();
                 spawnCounter.endGoalHealthReal -= Damage;
                 hpScript.health -= Damage;

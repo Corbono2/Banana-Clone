@@ -79,7 +79,7 @@ public class BB_EnemyController : MonoBehaviour
       //Start the death sequence
       StartCoroutine(deathSequence());
       //Destroy the bullet
-      Destroy(col.gameObject);  // ****************************************FLAG*************************************
+      col.gameObject.SetActive(false);  // ****************************************FLAG*************************************
     }
 
 

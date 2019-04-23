@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8347,7 +8347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet1: {fileID: 1041243608852264, guid: de726314516260d448c84b6f9c21a57e, type: 3}
   bullet2: {fileID: 1041243608852264, guid: e9a0fc2c701c07649a66706fd6759b6c, type: 3}
-  pooledAmount: 5
+  pooledAmount: 20
 --- !u!195 &2110064554
 NavMeshAgent:
   m_ObjectHideFlags: 0

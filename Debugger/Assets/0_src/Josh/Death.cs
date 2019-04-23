@@ -42,14 +42,16 @@ public class Death : MonoBehaviour
             {
                 if (!isTestScene)
                 {
-                    Destroy(gameObject);// ****************************************FLAG*************************************
                     SceneManager.LoadScene(sceneName: "mainMenu");
+                    //Destroy(gameObject);// ****************************************FLAG*************************************
+                    
                 }
 
                 else
                 {
-                    Destroy(gameObject);// ****************************************FLAG*************************************
                     SceneManager.LoadScene(sceneName: "mainMenu");
+                    //Destroy(gameObject);// ****************************************FLAG*************************************
+                    
                 }
             }
 
