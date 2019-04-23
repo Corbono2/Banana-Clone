@@ -36,12 +36,14 @@ public class Death : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(hpScript.health);
         if(hpScript.health <= 0)
         {
             if (isEndGoal)   // Handles death of end goal
             {
                 if (!isTestScene)
                 {
+                    Debug.Log("Here");
                     SceneManager.LoadScene(sceneName: "mainMenu");
                     //Destroy(gameObject);// ****************************************FLAG*************************************
                     
@@ -49,6 +51,7 @@ public class Death : MonoBehaviour
 
                 else
                 {
+                    Debug.Log("Here");
                     SceneManager.LoadScene(sceneName: "mainMenu");
                     //Destroy(gameObject);// ****************************************FLAG*************************************
                     
