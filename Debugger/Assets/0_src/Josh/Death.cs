@@ -49,6 +49,7 @@ public class Death : MonoBehaviour
                 else
                 {
                     Destroy(gameObject);
+                    SceneManager.LoadScene("mainMenu");
                 }
             }
 
@@ -69,7 +70,9 @@ public class Death : MonoBehaviour
             else   // Handles death of enemy
             {
                 // Enemy destroyed
-                Destroy(gameObject);
+                // Destroy(gameObject);
+                // yeet the enemies instead of banishing them to the shadow realm
+                gameObject.transform.position = new Vector3(10,0,16);
                 // Give resource to player
                 //moneyScript += 10F; // Reminder: come back and update this value later
             }
