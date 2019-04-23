@@ -26,7 +26,7 @@ public class BB_EnemyController : MonoBehaviour
         //public void Play(string stateName, int layer = -1, float normalizedTime = float.NegativeInfinity);
         //public void Play(int stateNameHash, int layer = -1, float normalizedTime = float.NegativeInfinity)
         //https://docs.unity3d.com/ScriptReference/Animator.Play.html
-        // myAnimator.Play("quin@move_forward"); //Start the moving animation// ****************************************FLAG*************************************
+         //myAnimator.Play("quin@move_forward"); //Start the moving animation// ****************************************FLAG*************************************
     }
 
     // Update is called once per frame

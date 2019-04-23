@@ -49,7 +49,7 @@ public class BB_EnemyController_TargetEG : MonoBehaviour
               }
               else {
                 //Make sure the enemy is using the moving animation
-                myAnimator.Play("qiun@move_forward");
+                //myAnimator.Play("qiun@move_forward");
               }
           }
       }
