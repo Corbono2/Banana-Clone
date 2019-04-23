@@ -17,7 +17,7 @@ public class BB_EnemyController : MonoBehaviour
       myNavmeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         //Set the target for the enemy to move towards
         someGameObject = GameObject.FindGameObjectWithTag("EndGoal");
-        if (someGameObject.activeInHierarchy == true)
+        if (someGameObject != null && someGameObject.activeInHierarchy == true)
         {
             target = GameObject.FindGameObjectWithTag("EndGoal").transform;// ****************************************FLAG*************************************
         }
