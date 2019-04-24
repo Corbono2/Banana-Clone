@@ -8,7 +8,7 @@ using System.IO;
 public class boundaryTest2Text : MonoBehaviour
 {
     Text txt;
-    public static float endGoalHealth;
+    public float endGoalHealth;
 
     //Timer variables before continuing to next scene
     private float timer = 0;

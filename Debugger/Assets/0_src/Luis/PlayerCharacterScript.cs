@@ -17,8 +17,8 @@ public class PlayerCharacterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       float horizontalVal =  Input.GetAxis("Vertical");
-       float vertVal = Input.GetAxis("Horizontal");
+       float verticalVal =  Input.GetAxis("Vertical");
+       float horizontalVal = Input.GetAxis("Horizontal");
         /*bool shoot = Input.GetKey("space");
         timePassed += Time.deltaTime;
         if(shoot && timePassed >= keyDelay){
@@ -28,19 +28,24 @@ public class PlayerCharacterScript : MonoBehaviour
             //Instantiate(myProjectile);
         }*/
 
-        if (horizontalVal == 0){
-animator.SetBool("move",false);
-//animator.SetBool("turnright",false);
-//animator.SetBool("turnleft",false);
-     }else{
-         if(horizontalVal>0 ){
-             animator.SetBool("move",true);
-             //if(vertVal>0){
-              //   animator.SetBool("turnright",true);
-           //  }
-           //  if(vertVal<0){
-             //    animator.SetBool("turnleft",true);
+        if (verticalVal == 0){
+        animator.SetBool("moveForward",false);
+        animator.SetBool("moveBackward",false);
+        Debug.Log("Setting values");
+        }else{
+            if(verticalVal>0 ){
+                Debug.Log("Setting values forward");
+                animator.SetBool("moveForward",true);
+                animator.SetBool("moveBackward",false);
+             }else if(verticalVal<0){
+                Debug.Log("Setting values backwards");
+                animator.SetBool("moveBackward",true);
+                animator.SetBool("moveForward",false);
              }
+         }
+         if(horizontalVal != 0){
+            float horizontal = horizontalVal * 3;
+            gameObject.transform.Rotate(0, horizontal, 0);
          }
      }
     }
