@@ -48,9 +48,10 @@ class Play: Button {
     This is an override function for the play button action. When
     pressed, the scene for the gameplay will be loaded.
      */
+    /*
     public override void buttonAction() {
         SceneManager.LoadScene("Real_MainScene");
-    }
+    }*/
 }
 
 //Subclass of Button
@@ -83,13 +84,13 @@ class Tutorial: Button {
         Debug.Log("Tutorial");
     }
 }
-
+/*
 class Exit: Button {
     public override void buttonAction() {
         Debug.Log("QUIT");
         Application.Quit();    
     }
-}
+}*/
 public class mainMenu : MonoBehaviour {
     //Game objects
     public GameObject mainMenuUI;
@@ -105,10 +106,10 @@ public class mainMenu : MonoBehaviour {
     OUTPUT: void
     This function creates a Play object and calls its playAction functon.
      */
-    public void play() {
+    /*public void play() {
         Play playAction = new Play();
         playAction.buttonAction();
-    }
+    }*/
 
     // Josh was here
     public void joshTest()
