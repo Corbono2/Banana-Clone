@@ -170,8 +170,9 @@ public class mainMenu : MonoBehaviour {
      OUTPUT: void
      This function provides the functionality for the exit button. 
       */
-    public void exit() {
+    /*public void exit() {
         Exit exitAction = new Exit();
         exitAction.buttonAction();
-    }
+    }*/
+
 }
