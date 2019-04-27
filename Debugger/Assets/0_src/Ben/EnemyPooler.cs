@@ -19,7 +19,6 @@ public class EnemyPooler : MonoBehaviour
   {
     //Create a list of objects
     pooledObjects = new List<GameObject>();
-
     //Pool the appropriate amount of objects and make sure they are inactive
     for (int i = 0; i < amountToPool; i++) {
       GameObject obj = (GameObject)Instantiate(objectToPool);

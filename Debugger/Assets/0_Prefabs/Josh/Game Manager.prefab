@@ -78,3 +78,4 @@ MonoBehaviour:
   cooldown: 3
   spawnPoints:
   - {fileID: 5393456395922122136}
+  bb_waveMachine: {fileID: 0}

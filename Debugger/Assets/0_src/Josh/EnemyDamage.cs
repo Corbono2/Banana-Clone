@@ -32,7 +32,7 @@ public class EnemyDamage : MonoBehaviour
                     Health hpScript = hit.transform.gameObject.GetComponent<Health>();
                     hpScript.health -= Damage;
                     cd = Cooldown;
-                    Destroy(gameObject);
+                    //Destroy(gameObject);
                     spawnCounter.enemyDeathCounter += 1;
                 }
             }
