@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     public static int Damage = 20;   // Change this value for damage output
-    public float Cooldown;
-    private float cd;
-
+    public float Cooldown = 3;
+    private float cd = 0;
+    private BB_EnemyController enemyController;
     // Start is called before the first frame update
     void Start()
     {
-
+        enemyController = GetComponent<BB_EnemyController>();
     }
 
     // Update is called once per frame
@@ -20,36 +20,32 @@ public class EnemyDamage : MonoBehaviour
         if (cd > 0)   // Cooldown between attacks
         {
             cd -= Time.deltaTime;
+            return;
         }
 
         RaycastHit hit;   // Detect the hit
-        if (Physics.Raycast(transform.position, Vector3.forward, out hit, .6f))
+        if (Physics.Raycast(transform.position, Vector3.forward, out hit, 1.5f))
         {
             if (hit.transform.tag == "Player")   // If its the player, deal damage
             {
-                if (cd <= 0)
-                {
-                    Health hpScript = hit.transform.gameObject.GetComponent<Health>();
-                    hpScript.health -= Damage;
-                    cd = Cooldown;
-                    Destroy(gameObject);
-                    spawnCounter.enemyDeathCounter += 1;
-                }
+                Health hpScript = hit.transform.gameObject.GetComponent<Health>();
+                hpScript.health -= Damage;
+                Destroy(gameObject);
+                spawnCounter.enemyDeathCounter += 1;
             }
 
             else if (hit.transform.tag == "EndGoal")   // If its the end goal, deal damage
             {
                 Debug.Log("Hit Goal");
+                enemyController.attackRight();
                 Health hpScript = hit.transform.gameObject.GetComponent<Health>();
                 spawnCounter.endGoalHealthReal -= Damage;
                 hpScript.health -= Damage;
                 spawnCounter.endGoalHealth += Damage;
                 spawnCounter.enemyDeathCounter += 1;
-                // Destroy(gameObject);
-                // yeet the enemies instead of banishing them to the shadow realm
-                gameObject.transform.position = new Vector3(10,0,16);
                 
             }
+            cd = Cooldown;
         }
         
     }

@@ -66,7 +66,7 @@ class SoundEffect : Sound
     //Override abstract template - allows haptic response
     public override void Play()
     {
-        source.Play();
+        source.PlayOneShot(clip);
 
         if(isHaptic == true)
         {

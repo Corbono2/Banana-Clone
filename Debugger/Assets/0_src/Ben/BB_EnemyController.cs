@@ -8,13 +8,15 @@ public class BB_EnemyController : MonoBehaviour
     private UnityEngine.AI.NavMeshAgent myNavmeshAgent;
     Transform target;
     public Animator myAnimator;
-    private bool hasArrived = false;
     public GameObject someGameObject;
+    private Health health;
 
     // Start is called before the first frame update
     void OnEnable() {
+        health = GetComponent<Health>();
       //Set up navemesh agent
       myNavmeshAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        myNavmeshAgent.stoppingDistance = 2.4f;
         //Set the target for the enemy to move towards
         someGameObject = GameObject.FindGameObjectWithTag("EndGoal");
         if (someGameObject != null && someGameObject.activeInHierarchy == true)
@@ -32,10 +34,6 @@ public class BB_EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(hasArrived) {
-        return; //If the enemy has arrived, it doesn't need to be moving
-      }
-
       if(target == null) {
         //If there's no target yet, we can use the idling animation
         myAnimator.Play("quin@idle");
@@ -45,43 +43,40 @@ public class BB_EnemyController : MonoBehaviour
       myNavmeshAgent.SetDestination(target.position);
       // Check if we've reached the destination
       if (!myNavmeshAgent.pathPending) {
-          if (myNavmeshAgent.remainingDistance <= myNavmeshAgent.stoppingDistance) {
-              if (!myNavmeshAgent.hasPath || myNavmeshAgent.velocity.sqrMagnitude == 0f) {
-                attackRight(); //Play the attack animation
-                hasArrived = true;
-              }
-              else {
-                //Make sure the moving animation is being played
+          if (myNavmeshAgent.remainingDistance > myNavmeshAgent.stoppingDistance && health.health > 0) {
                 myAnimator.Play("qiun@move_forward");
-              }
           }
       }
     }
 
-    void eat() {
+    public void eat() {
       myAnimator.Play("quin@eat");
     }
 
-    void attackLeft() {
+    public void attackLeft() {
       myAnimator.Play("quin@attack_left");
     }
 
-    void attackRight() {
+    public void attackRight() {
       myAnimator.Play("quin@attack_right");
     }
 
-    void die() {
+    public void die() {
       myAnimator.Play("quin@death_blowed");
     }
 
     //Handles when a bullet collides with the enemy
     void OnCollisionEnter(Collision col) {
         //Start the death sequence
-        StartCoroutine(deathSequence());
         //Destroy the bullet
         if(col.gameObject.name == "bullet")
         {
-            col.gameObject.SetActive(false);  // ****************************************FLAG*************************************
+            health.health -= 10;
+            if (health.health <= 0)
+            {
+                StartCoroutine(deathSequence());
+                Destroy(col.gameObject);
+            }
         }
     }
 
