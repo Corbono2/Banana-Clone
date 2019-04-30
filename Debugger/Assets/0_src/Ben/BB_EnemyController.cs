@@ -37,7 +37,7 @@ public class BB_EnemyController : MonoBehaviour
         return; //If the enemy has arrived, it doesn't need to be moving
       }
 
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.L)) // Lennin LEG - Easter Eggs
         {
             Debug.Log("toy squeeze activated");
             toySqueezeActive = true;
