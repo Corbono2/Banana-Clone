@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641234, b: 0.57481724, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5661,7 +5661,7 @@ PrefabInstance:
     - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
         type: 3}
       propertyPath: soundFx.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
         type: 3}
@@ -5721,6 +5721,26 @@ PrefabInstance:
     - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
         type: 3}
       propertyPath: soundFx.Array.data[1].isHaptic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: soundFx.Array.data[2].soundID
+      value: Enemy Death
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: soundFx.Array.data[2].volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: soundFx.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8bfb30bc22d18d74c9567ad5956bb1ae, type: 3}
+    - target: {fileID: 2885501938936558473, guid: beefa6b404eda4468a859c82db7bd8e9,
+        type: 3}
+      propertyPath: soundFx.Array.data[2].isHaptic
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -9,6 +9,7 @@ public class BB_EnemyController : MonoBehaviour
     Transform target;
     public Animator myAnimator;
     private bool hasArrived = false;
+    private bool toySqueezeActive = false; // Lennin LEG - Easter Eggs
     public GameObject someGameObject;
 
     // Start is called before the first frame update
@@ -35,6 +36,12 @@ public class BB_EnemyController : MonoBehaviour
       if(hasArrived) {
         return; //If the enemy has arrived, it doesn't need to be moving
       }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("toy squeeze activated");
+            toySqueezeActive = true;
+        }      
 
       if(target == null) {
         //If there's no target yet, we can use the idling animation
@@ -71,6 +78,10 @@ public class BB_EnemyController : MonoBehaviour
     }
 
     void die() {
+      if (toySqueezeActive == true) // Lennin LEG - Easter Eggs
+      {
+        FindObjectOfType<SoundManager>().PlaySound("Enemy Death");
+      }
       myAnimator.Play("quin@death_blowed");
     }
 
