@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 //Shooting script that implements object pooling pattern
 //Attach to object being fired from
 public class Shoot : MonoBehaviour
 {
     bool specialBulletActive;
-
+    bool cutScene;
     float bulletSpeed = 500;    //Force of bullet fired
     public GameObject bullet1;   //Allows selection of gameobject in inspector
     public GameObject bullet2;   //Allows selection of gameobject in inspector
@@ -101,6 +102,12 @@ public class Shoot : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             specialBulletActive = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SceneManager.LoadScene("Video");
+            
         }
     }
 }
