@@ -8,7 +8,7 @@
 * by its own class. Code reuse is demonstrated by the virtual
 * function found in the Button class. This function is reused and
 * modified to perform specific task dependent on which subclass
-* is overriding the virtual function. 
+* is overriding the virtual function.
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -43,7 +43,7 @@ class Button {
 class Play: Button {
 
     /*buttonAction
-    INPUT: none 
+    INPUT: none
     OUTPUT: void
     This is an override function for the play button action. When
     pressed, the scene for the gameplay will be loaded.
@@ -56,14 +56,14 @@ class Play: Button {
 
 //Subclass of Button
 class Credits: Button {
- 
+
     /*buttonAction
      INPUT: none
      OUTPUT: void
      This is an override function for the credits button. When pressed
      its functionality will be handled in a function found in the
      main class and this function will print an indicator message
-     in the Debug console. 
+     in the Debug console.
       */
     public override void buttonAction() {
         Debug.Log("Credits");
@@ -77,7 +77,7 @@ class Tutorial: Button {
      OUTPUT: void
      This is an override function for the tutorials button. When pressed
      it's functionality will be handled in a class found in the main
-     class and this function will print an indicator message in the 
+     class and this function will print an indicator message in the
      Debug console.
       */
     public override void buttonAction() {
@@ -88,7 +88,7 @@ class Tutorial: Button {
 class Exit: Button {
     public override void buttonAction() {
         Debug.Log("QUIT");
-        Application.Quit();    
+        Application.Quit();
     }
 }*/
 public class mainMenu : MonoBehaviour {
@@ -97,7 +97,7 @@ public class mainMenu : MonoBehaviour {
     public GameObject creditsMenuUI;
     public GameObject tutorialMenuUI;
 
-    //Button objects 
+    //Button objects
     Credits creditsAction = new Credits();
     Tutorial tutorialAction = new Tutorial();
 
@@ -111,7 +111,16 @@ public class mainMenu : MonoBehaviour {
         playAction.buttonAction();
     }*/
 
+
+    void Start() {
+      Cursor.lockState = CursorLockMode.None;
+      Cursor.lockState = CursorLockMode.Confined;
+      Cursor.visible = true;
+    }
+
+
     // Josh was here
+    // ^- cool story bro
     public void joshTest()
     {
         SceneManager.LoadScene("jt Stress Test");
@@ -121,20 +130,20 @@ public class mainMenu : MonoBehaviour {
      INPUT: none
      OUTPUT: void
      This function provides the functionality for the credits
-     button 
+     button
       */
     public void credits() {
         creditsAction.buttonAction();
         mainMenuUI.SetActive(false);
         creditsMenuUI.SetActive(true);
-        
+
     }
 
     /*backCredits
      INPUT: none
      OUTPUT: void
      This function provides the functionality for the back button
-     found in the CreditsMenuUI. 
+     found in the CreditsMenuUI.
       */
     public void backCredits() {
         creditsAction.backAction();
@@ -145,7 +154,7 @@ public class mainMenu : MonoBehaviour {
     /*tutorial
      INPUT: none
      OUTPUT: void
-     This function provides the functionality for the tutorial button. 
+     This function provides the functionality for the tutorial button.
       */
     public void tutorial() {;
         tutorialAction.buttonAction();
@@ -158,7 +167,7 @@ public class mainMenu : MonoBehaviour {
      INPUT: none
      OUTPUT: void
      This function provides the functionality for the back button
-     found in the TutorialMenuUI. 
+     found in the TutorialMenuUI.
       */
     public void backTutorial() {
         tutorialAction.backAction();
@@ -169,7 +178,7 @@ public class mainMenu : MonoBehaviour {
     /*exit
      INPUT: none
      OUTPUT: void
-     This function provides the functionality for the exit button. 
+     This function provides the functionality for the exit button.
       */
     /*public void exit() {
         Exit exitAction = new Exit();
