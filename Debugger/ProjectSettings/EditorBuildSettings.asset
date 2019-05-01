@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0_tst/Josh/jt boundary2.unity
     guid: 57c465f744e194e469f709d2375d417f
+  - enabled: 1
+    path: Assets/0_src/Josh/Video.unity
+    guid: 83d45ea0a631cec45aaa730d2774fe76
   m_configObjects: {}

@@ -36,6 +36,13 @@ public class Death : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // This easter egg heals the player's health when the 'H' key is pressed. - Benjamin (Dream Team)
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Debug.Log("healed");
+            hpScript.health = 100;
+        }
+
         Debug.Log(hpScript.health);
         if(hpScript.health <= 0)
         {
