@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class SimpleShoot : MonoBehaviour
 {
 
@@ -28,6 +28,12 @@ public class SimpleShoot : MonoBehaviour
             GetComponent<Animator>().SetTrigger("Fire");
 
             FindObjectOfType<SoundManager>().PlaySound("Shoot");
+        }
+
+         if (Input.GetKeyDown(KeyCode.K))
+        {
+            SceneManager.LoadScene("Video");
+            
         }
     }
 
